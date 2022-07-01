@@ -149,6 +149,7 @@ If INTERACTIVE is nil the function acts like a capf."
         ,(notmuch-capf--table-with-properties
           (notmuch-capf--cached-table (car bounds) (cdr bounds) #'notmuch-capf--emails 'substring)
           :category 'notmuch-capf)
+        :company-kind (lambda (_) 'email)
         :exclusive no
         :exit-function (lambda (x _status)
                          (run-hook-with-args 'notmuch-address-post-completion-functions x))
